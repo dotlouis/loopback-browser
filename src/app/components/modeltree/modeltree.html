@@ -1,6 +1,6 @@
 <md-list ng-controller="ModelTreeCtrl">
   <md-subheader>Models  API_VERSION: {{explorer.apiVersion}}</md-subheader>
   <md-list-item ng-repeat="model in models">
-    <p> {{ model.path }} </p>
+    <a ui-sref="app.model({name: model.name})">{{ model.name }}</a>
   </md-list-item>
 </md-list>

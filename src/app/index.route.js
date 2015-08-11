@@ -3,19 +3,28 @@
 
   angular
     .module('loopbackBrowser')
-    .config(routeConfig);
+    .config([
+      '$stateProvider',
+      '$urlRouterProvider',
+      function($stateProvider, $urlRouterProvider){
 
-  /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      });
+        $stateProvider
+        .state('app', {
+            url: '/',
+            templateUrl: 'app/main/main.html',
+            controller:'MainCtrl'
+        })
+        .state('app.model', {
+            url: '/models/:name',
+            views: {
+                'model': {
+                    templateUrl: 'app/components/model/model.html',
+                    controller: 'ModelCtrl'
+                }
+            }
+        });
 
-    $urlRouterProvider.otherwise('/');
-  }
+        $urlRouterProvider.otherwise('/');
+      }]);
 
 })();

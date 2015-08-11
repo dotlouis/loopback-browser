@@ -3,7 +3,7 @@
 
   angular
     .module('loopbackBrowser')
-    .controller('MainController', [
+    .controller('MainCtrl', [
       '$scope',
       'AuthService',
       'Seeder',

@@ -8,12 +8,16 @@
       FB_APP_ID: '1438646329798081',
       API_ENDPOINT: 'https://studloop-studant.rhcloud.com'
     })
-    .config(config);
+    .config([
+      '$logProvider',
+      'LoopBackResourceProvider',
+      'APP_CONFIG',
+      function config($logProvider, LoopBackResourceProvider, APP_CONFIG) {
+        // Enable log
+        $logProvider.debugEnabled(true);
 
-  /** @ngInject */
-  function config($logProvider) {
-    // Enable log
-    $logProvider.debugEnabled(true);
-  }
+        // Change the URL where to access the LoopBack REST API server
+        LoopBackResourceProvider.setUrlBase(APP_CONFIG.API_ENDPOINT+'/api');
+    }]);
 
 })();
