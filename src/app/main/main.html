@@ -4,7 +4,8 @@
 
       <md-button href="https://github.com/dot-louis/loopback-browser">loopback browser</md-button>
       <span flex></span>
-      <md-button>Login</md-button>
+      <md-button ng-if="!isLoggedIn()" ng-click="loginWith('facebook')">Login</md-button>
+      <md-button ng-if="isLoggedIn()" ng-click="logout()">Logout</md-button>
 
     </md-toolbar>
   </header>

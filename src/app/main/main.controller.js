@@ -3,10 +3,26 @@
 
   angular
     .module('loopbackBrowser')
-    .controller('MainController', MainController);
+    .controller('MainController', [
+      '$scope',
+      'AuthService',
+      'Seeder',
+      function($scope, Auth, Seeder){
 
-  /** @ngInject */
-  function MainController() {
+        $scope.loginWith = function(provider){
+          Auth.loginWith(provider)
+          .then(function(){
+            console.log("logged in!");
+          });
+        };
 
-  }
+        $scope.logout = function(){
+          Auth.logout();
+        };
+
+        $scope.isLoggedIn = function(){
+          return Seeder.isAuthenticated();
+        };
+      }
+    ]);
 })();
