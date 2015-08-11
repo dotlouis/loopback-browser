@@ -23,6 +23,5 @@
         $scope.isLoggedIn = function(){
           return Seeder.isAuthenticated();
         };
-      }
-    ]);
+    }]);
 })();
