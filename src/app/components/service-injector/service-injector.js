@@ -13,8 +13,10 @@
             var service = $injector.get(serviceName);
             return service;
           }
-          else
-            return new Error("the service named "+serviceName+" does not exist");
+          else{
+            throw new Error("the service named "+serviceName+" does not exist");
+            return undefined;
+          }
         }
       };
     }]);

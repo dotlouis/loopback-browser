@@ -2,6 +2,7 @@
   <header>
     <md-toolbar layout="row" layout-align="space-between center">
 
+      <md-button ng-click="toggleSidenav('left')">Models</md-button>
       <md-button href="https://github.com/dot-louis/loopback-browser">loopback browser</md-button>
       <span flex></span>
       <md-button ng-if="!isLoggedIn()" ng-click="loginWith('facebook')">Login</md-button>
@@ -10,8 +11,8 @@
     </md-toolbar>
   </header>
 
-  <md-content layout="row" layout-align="center center">
-    <section layout="column" layout-align="start center" ng-include="'/app/components/modeltree/modeltree.html'"></section>
+  <div layout="row" flex>
+    <section ng-include="'/app/components/modeltree/modeltree.html'"></section>
     <section ui-view="model"></section>
-  </md-content>
+  </div>
 </md-content>

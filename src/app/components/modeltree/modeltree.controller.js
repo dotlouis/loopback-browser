@@ -8,10 +8,5 @@
       'ExplorerService',
       function($scope, Explorer){
 
-        Explorer.getApis()
-        .then(function(res){
-          $scope.explorer = res.data;
-          $scope.models = res.data.apis;
-        });
       }]);
 })();

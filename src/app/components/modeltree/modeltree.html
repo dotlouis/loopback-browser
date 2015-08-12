@@ -1,6 +1,9 @@
-<md-list ng-controller="ModelTreeCtrl">
-  <md-subheader>Models  API_VERSION: {{explorer.apiVersion}}</md-subheader>
-  <md-list-item ng-repeat="model in models">
-    <a ui-sref="app.model({name: model.name})">{{ model.name }}</a>
-  </md-list-item>
-</md-list>
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  <md-content layout-padding ng-controller="ModelTreeCtrl">
+    <md-list>
+      <md-list-item ng-repeat="model in models">
+        <a ui-sref="app.model({name: model.id})">{{ model.id }}</a>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-sidenav>

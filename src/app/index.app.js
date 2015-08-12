@@ -9,6 +9,7 @@
       'ngResource',
       'ui.router',
       'ngMaterial',
+      'md.data.table',
       'satellizer',
       'lbServices'
     ])

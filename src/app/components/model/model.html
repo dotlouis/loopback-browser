@@ -1,1 +1,27 @@
-<h1>{{model}}</h1>
+<md-data-table-toolbar>
+  <h2 class="md-title">{{model.id}}</h2>
+</md-data-table-toolbar>
+
+<md-data-table-container>
+  <table md-data-table md-row-select="selected" md-progress="deferred">
+    <thead md-order="query.order" md-trigger="onOrderChange">
+      <tr>
+        <th ng-repeat="(name,details) in model.properties"
+            name="{{name}}"
+            ng-class="{'required': details.required}"
+            ng-attr-numeric="{{details.type === 'number'? 'numeric': undefined}}"
+            unit="{{details.format}}"
+            order-by="name"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr md-auto-select ng-repeat="row in rows">
+        <td ng-repeat="(name, value) in row">
+          {{value}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</md-data-table-container>
+
+<!-- <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.total}}" md-trigger="onPaginationChange"></md-data-table-pagination> -->
